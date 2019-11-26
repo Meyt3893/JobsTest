@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="Scripts/jquery-1.9.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Control.js"></script>
+    <link href="JobsStyle.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+
+    <div ng-controller="homeController">
+        <div class="icon-bar">
+            <a href="#"><div class="fa fa-home"></div><div>Jobs</div></a>
+            <a href="#"><div class="fa fa-search"></div><div>Search</div></a>
+            <a href="#"><div class="fa fa-gg-circle"></div><div>Matches</div></a>
+        </div>
+        <div class="row">
+            <div class="col-md-9 col-md-offset-1">
+                <div style="background-color:#1d1a1a; padding:4%;" class="input-group">
+                    <input type="text" class="form-control" placeholder="Job title or keywords" ng-model="inSearch">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="search(inSearch)">
+                            <span class="glyphicon glyphicon-search">
+                                <span class="sr-only">Search</span>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+
+                <div ng-repeat="job in jobs">
+                    <a href="#" class="list-group-item">
+                        <h2 style="color:dodgerblue">{{job.JobTitleText}}</h2>
+                        <h4>{{job.job_description}}</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
