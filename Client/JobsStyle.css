@@ -1,4 +1,4 @@
-﻿.icon-bar {
+.icon-bar {
     width: 100%; 
     background-color: white; 
     overflow: auto; 
@@ -20,8 +20,15 @@
             text-decoration: none;
         }
 
-        
 
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 50px;
+    background: #D6E9FE;
+}
 
 .flex-container {
     list-style: none;
@@ -32,6 +39,29 @@
     -webkit-flex-direction: column;
     flex-direction: column;
     float: left;
+    width:100%;
 }
 
+.rowflex {
+    flex-direction: row;
+    direction:ltr;
+    flex-wrap: wrap;
+    display:flex;
 
+}
+
+#background {
+    padding: 40px;
+    top: 0;
+    background-color: #000;
+    width: -webkit-fill-available;
+    margin-top: 70px;
+    z-index: -1;
+    position: absolute;
+}
+
+#container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
