@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -21,6 +21,16 @@ namespace DataServ.Controllers
             string JSONString = dl.DataTableToJSONWithJSONNet(dt);
             return Ok(JSONString);
         }
-      
+
+        [HttpGet]
+        public IHttpActionResult autocomp(string id)
+        {
+            DataTable dt = new DataTable();
+            Dal dl = new Dal();
+            dt = dl.Getcomplete(id);
+            string JSONString = dl.DataTableToJSONWithJSONNet(dt);
+            return Ok(JSONString);
+        }
+
     }
 }
