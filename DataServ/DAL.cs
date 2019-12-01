@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -34,6 +34,31 @@ namespace DataServ
                     Console.WriteLine("Exception Message: " + ex.Message);
                 }
                
+            }
+            return dt;
+        }
+
+        public DataTable Getcomplete(string input)
+        {
+            DataTable dt = new DataTable();
+            string connStr = ConfigurationManager.ConnectionStrings["azureConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("autocomp", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@word", input);
+                    dt.Load(cmd.ExecuteReader());
+                    conn.Close();
+
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine("Exception Message: " + ex.Message);
+                }
+
             }
             return dt;
         }
