@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html ng-app="myapp">
 <head>
     <meta charset="utf-8" />
@@ -15,16 +15,22 @@
 </head>
 <body>
 
-    <div ng-controller="homeController">
+    <div ng-controller="homeController" >
         <div class="icon-bar">
             <a href="#"><div class="fa fa-home"></div><div>Jobs</div></a>
             <a href="#"><div class="fa fa-search"></div><div>Search</div></a>
             <a href="#"><div class="fa fa-gg-circle"></div><div>Matches</div></a>
         </div>
-        <div class="row">
-            <div class="col-md-9 col-md-offset-1">
-                <div style="background-color:#1d1a1a; padding:4%;" class="input-group">
-                    <input type="text" class="form-control" placeholder="Job title or keywords" ng-model="inSearch">
+        <div>
+        <div id="background" style="margin-top: 75px;"></div>
+        <div class="column">
+                <div class="rowflex" style="margin: 2%;">
+                    <div style="width:70%;">
+                        <input type="text" class="form-control" placeholder="Job title or keywords" ng-model="inSearch" ng-keyup="(inSearch)&&complete(inSearch)" />
+                        <ul class="list-group" style="z-index: 1000;position: absolute;" ng-hide="hidethis" ng-show="inSearch">
+                            <li class="list-group-item drop" ng-repeat="item in complist" ng-click="fillTextbox(item.autocomp)">{{item.autocomp}}</li>
+                        </ul>
+                    </div>
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="search(inSearch)">
                             <span class="glyphicon glyphicon-search">
@@ -36,12 +42,13 @@
 
                 <div ng-repeat="job in jobs">
                     <a href="#" class="list-group-item">
-                        <h2 style="color:dodgerblue">{{job.JobTitleText}}</h2>
+                        <h2 style="color:dodgerblue;z-index:1">{{job.JobTitleText}}</h2>
                         <h4>{{job.job_description}}</h4>
                     </a>
                 </div>
             </div>
-        </div>
+            </div>
+      
     </div>
 
 </body>
