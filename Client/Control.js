@@ -14,7 +14,7 @@ myapp.controller("homeController", ['$scope', '$http',function ($scope, $http) {
         }).then(function Success(response) {
 
             $scope.complist = JSON.parse(response.data);
-            console.log(response.data);
+           
 
         }, function Error(response) {
     
@@ -36,7 +36,7 @@ myapp.controller("homeController", ['$scope', '$http',function ($scope, $http) {
         }).then(function Success(response) {
 
             $scope.jobs = JSON.parse(response.data);       
-            console.log(response.data);
+           
 
         }, function Error(response) {
                 alert(response.statusText);
